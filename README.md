@@ -1,97 +1,97 @@
-# 💊 Calculadora de Valproato (Depakene)
+# 💊 Valproate Calculator (Depakene)
 
-Aplicação desktop desenvolvida em **Python** para auxiliar no planejamento da dispensação de **Valproato 250 mg e 500 mg**, considerando a quantidade disponível com o paciente e a entrega por caixas fechadas.
+Desktop application developed in **Python** to assist with planning the dispensing of **Valproate 250 mg and 500 mg**, taking into account the amount of medication the patient already has and the distribution of medication in sealed boxes.
 
-O objetivo do projeto é tornar o processo de dispensação mais organizado, reduzir desperdícios e ajudar no melhor aproveitamento dos medicamentos disponíveis.
-
----
-
-## 🎯 Por que este projeto foi criado
-
-A calculadora foi desenvolvida para apoiar a rotina de dispensação em uma farmácia pública.
-
-Em alguns casos, o paciente ainda possui comprimidos restantes de uma dispensação anterior. Antes de entregar novas caixas, essa quantidade pode ser considerada no planejamento dos meses seguintes.
-
-A aplicação automatiza esse cálculo e ajuda a visualizar:
-
-- quantos comprimidos o paciente já possui;
-- quantos comprimidos serão necessários em cada mês;
-- quantas caixas precisam ser entregues;
-- quantos comprimidos ficarão de saldo para o mês seguinte.
-
-Dessa forma, o sistema ajuda a reduzir cálculos manuais e possíveis erros durante o planejamento da dispensação.
+The goal of the project is to make the dispensing process more organized, reduce waste, and improve the use of available medication.
 
 ---
 
-## ⚙️ Como funciona
+## 🎯 Why This Project Was Created
 
-A aplicação considera que:
+The calculator was developed to support the dispensing routine in a public pharmacy.
 
-- cada caixa possui **50 comprimidos**;
-- as caixas não são fracionadas;
-- o usuário informa a apresentação do medicamento: **250 mg ou 500 mg**;
-- é definida a quantidade de meses do planejamento;
-- é informada a quantidade de comprimidos necessária por mês;
-- também é possível informar uma sobra inicial já disponível com o paciente.
+In some cases, patients may still have tablets remaining from a previous dispensing period. Before providing new boxes, this remaining amount can be considered when planning the following months.
 
-A partir desses dados, o sistema realiza o cálculo mês a mês.
+The application automates this calculation and helps visualize:
 
-### Fluxo básico
+- how many tablets the patient already has;
+- how many tablets will be required each month;
+- how many boxes need to be dispensed;
+- how many tablets will remain for the following month.
+
+This helps reduce manual calculations and minimize possible errors during medication dispensing planning.
+
+---
+
+## ⚙️ How It Works
+
+The application considers that:
+
+- each box contains **50 tablets**;
+- boxes cannot be split;
+- the user selects the medication strength: **250 mg or 500 mg**;
+- the number of months to be planned is defined;
+- the required number of tablets per month is entered;
+- an initial remaining balance already available to the patient can also be entered.
+
+Based on this information, the system performs the calculation month by month.
+
+### Basic Flow
 
 ```text
-Dados do paciente
+Patient data
       ↓
-Quantidade necessária por mês
+Required amount per month
       ↓
-Saldo disponível
+Available balance
       ↓
-Cálculo de caixas necessárias
+Calculation of required boxes
       ↓
-Saldo para o próximo mês
+Remaining balance for the next month
 ```
 
 ---
 
-## 🧮 Exemplo
+## 🧮 Example
 
-Suponha que o paciente precise de:
-
-```text
-60 comprimidos por mês
-```
-
-e já possua:
+Suppose the patient needs:
 
 ```text
-20 comprimidos
+60 tablets per month
 ```
 
-O programa considera primeiro esses 20 comprimidos e calcula somente a quantidade adicional necessária.
+and already has:
 
-Como cada caixa contém 50 comprimidos, a aplicação determina automaticamente quantas caixas fechadas precisam ser entregues e qual será o saldo restante para o próximo período.
+```text
+20 tablets
+```
+
+The program first considers these 20 tablets and calculates only the additional amount required.
+
+Since each box contains 50 tablets, the application automatically determines how many sealed boxes must be dispensed and how many tablets will remain available for the next period.
 
 ---
 
 ## 🖥️ Interface
 
-A aplicação possui uma interface gráfica desenvolvida com **CustomTkinter**, permitindo realizar os cálculos sem utilizar o terminal.
+The application includes a graphical user interface developed with **CustomTkinter**, allowing calculations to be performed without using the terminal.
 
-A interface foi pensada para ser simples e rápida de utilizar durante a rotina de atendimento.
+The interface was designed to be simple, fast, and practical for use during the daily dispensing routine.
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## 🛠️ Technologies Used
 
-| Tecnologia | Uso |
+| Technology | Purpose |
 |---|---|
-| Python | Lógica principal da aplicação |
-| CustomTkinter | Interface gráfica |
-| Git | Controle de versão |
-| GitHub | Armazenamento e documentação do projeto |
+| Python | Main application logic |
+| CustomTkinter | Graphical user interface |
+| Git | Version control |
+| GitHub | Project hosting and documentation |
 
 ---
 
-## 📂 Estrutura do projeto
+## 📂 Project Structure
 
 ```text
 calculadora-valproato/
@@ -102,44 +102,44 @@ calculadora-valproato/
 └── README.md
 ```
 
-### Arquivos
+### Files
 
-- `app.py` — interface gráfica da aplicação.
-- `calculadora.py` — lógica responsável pelos cálculos de dispensação.
-- `requirements.txt` — dependências necessárias para executar o projeto.
-- `README.md` — documentação do projeto.
+- `app.py` — graphical user interface.
+- `calculadora.py` — logic responsible for medication dispensing calculations.
+- `requirements.txt` — dependencies required to run the project.
+- `README.md` — project documentation.
 
 ---
 
-## ▶️ Como executar
+## ▶️ How to Run
 
-### Pré-requisitos
+### Requirements
 
-Tenha instalado:
+Make sure you have installed:
 
 ```text
-Python 3.10 ou superior
+Python 3.10 or higher
 ```
 
-### 1. Clone o repositório
+### 1. Clone the repository
 
 ```bash
-git clone URL-DO-SEU-REPOSITORIO
+git clone YOUR-REPOSITORY-URL
 ```
 
-### 2. Entre na pasta do projeto
+### 2. Open the project folder
 
 ```bash
 cd calculadora-valproato
 ```
 
-### 3. Instale as dependências
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Execute
+### 4. Run the application
 
 ```bash
 python app.py
@@ -147,15 +147,15 @@ python app.py
 
 ---
 
-## 📦 Dependências
+## 📦 Dependencies
 
-O projeto utiliza principalmente:
+The project mainly uses:
 
 ```text
 customtkinter
 ```
 
-As dependências podem ser instaladas automaticamente através do arquivo:
+All required dependencies can be installed automatically using:
 
 ```text
 requirements.txt
@@ -163,55 +163,55 @@ requirements.txt
 
 ---
 
-## 💡 Principais objetivos
+## 💡 Main Goals
 
-- Reduzir cálculos manuais.
-- Facilitar o planejamento da dispensação.
-- Aproveitar primeiro o saldo já disponível com o paciente.
-- Reduzir desperdício de medicamentos.
-- Apoiar uma melhor organização dos recursos públicos.
-- Tornar o processo mais rápido e padronizado.
-
----
-
-## 🚀 Melhorias futuras
-
-- [x] Cálculo por quantidade de comprimidos.
-- [x] Consideração de saldo inicial.
-- [x] Planejamento mês a mês.
-- [x] Interface gráfica.
-- [ ] Gerar relatório da dispensação.
-- [ ] Exportar resultado em PDF.
-- [ ] Salvar histórico de cálculos.
-- [ ] Adicionar validação mais completa dos campos.
-- [ ] Criar instalador para Windows.
-- [ ] Gerar executável `.exe`.
-- [ ] Adicionar testes automatizados.
+- Reduce manual calculations.
+- Make medication dispensing planning easier.
+- Use the patient's existing medication balance before dispensing new boxes.
+- Reduce medication waste.
+- Support better management of public resources.
+- Make the process faster and more standardized.
 
 ---
 
-## ⚠️ Aviso
+## 🚀 Future Improvements
 
-Esta aplicação é uma ferramenta de **apoio administrativo e operacional para cálculo de quantidades**.
-
-Ela não realiza prescrição, diagnóstico, alteração de dose ou recomendação terapêutica.
-
-A dispensação deve seguir a prescrição apresentada, os protocolos aplicáveis e as orientações dos profissionais responsáveis.
+- [x] Calculation based on the number of tablets.
+- [x] Initial balance consideration.
+- [x] Month-by-month planning.
+- [x] Graphical user interface.
+- [ ] Generate dispensing reports.
+- [ ] Export results to PDF.
+- [ ] Save calculation history.
+- [ ] Add more complete input validation.
+- [ ] Create a Windows installer.
+- [ ] Generate a `.exe` executable.
+- [ ] Add automated tests.
 
 ---
 
-## 👨‍💻 Autor
+## ⚠️ Disclaimer
+
+This application is an **administrative and operational support tool for quantity calculations**.
+
+It does not provide prescriptions, diagnoses, dosage changes, or therapeutic recommendations.
+
+Medication dispensing must follow the prescription provided, applicable protocols, and the instructions of the responsible healthcare professionals.
+
+---
+
+## 👨‍💻 Author
 
 **Emanuel Vítor Fernandes Nascimento**
 
-Desenvolvedor Back-End | Automação
+Back-End Developer | Automation
 
 [LinkedIn](https://www.linkedin.com/in/emanuel-vitor-fernandes-6a3796421) • [GitHub](https://github.com/emanuelvitorfn7-gif)
 
 ---
 
-## ⭐ Sobre o projeto
+## ⭐ About the Project
 
-Este projeto foi criado a partir de uma necessidade prática, utilizando programação para automatizar um cálculo repetitivo e apoiar uma rotina real de trabalho.
+This project was created from a real-world need, using programming to automate a repetitive calculation and support an actual work routine.
 
-Além da aplicação prática, o projeto também envolve conceitos de **Python, lógica de programação, interface gráfica, organização de código e desenvolvimento de soluções para problemas reais**.
+In addition to its practical application, the project also involves concepts related to **Python, programming logic, graphical user interfaces, code organization, and software development for solving real-world problems**.
