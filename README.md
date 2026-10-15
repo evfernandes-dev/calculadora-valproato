@@ -1,42 +1,42 @@
-# 💊 Valproate Calculator (Depakene)
+# Valproate Calculator (Depakene)
 
-Desktop application developed in **Python** to assist with planning the dispensing of **Valproate 250 mg and 500 mg**, taking into account the amount of medication the patient already has and the distribution of medication in sealed boxes.
+Desktop application developed in **Python** to help plan the dispensing of **Valproate 250 mg and 500 mg**, taking into account the amount of medication the patient already has and the fact that medication is distributed in sealed boxes.
 
-The goal of the project is to make the dispensing process more organized, reduce waste, and improve the use of available medication.
+The goal is to make the dispensing process more organized, reduce waste, and make better use of the available medication.
 
 ---
 
-## 🎯 Why This Project Was Created
+## Why this project was created
 
 The calculator was developed to support the dispensing routine in a public pharmacy.
 
-In some cases, patients may still have tablets remaining from a previous dispensing period. Before providing new boxes, this remaining amount can be considered when planning the following months.
+In some cases, patients still have tablets left from a previous dispensing period. Before giving out new boxes, this remaining amount can be considered when planning the following months.
 
 The application automates this calculation and helps visualize:
 
 - how many tablets the patient already has;
-- how many tablets will be required each month;
+- how many tablets are required each month;
 - how many boxes need to be dispensed;
 - how many tablets will remain for the following month.
 
-This helps reduce manual calculations and minimize possible errors during medication dispensing planning.
+This reduces manual calculations and helps minimize errors during medication dispensing planning.
 
 ---
 
-## ⚙️ How It Works
+## How it works
 
-The application considers that:
+The application assumes that:
 
 - each box contains **50 tablets**;
 - boxes cannot be split;
 - the user selects the medication strength: **250 mg or 500 mg**;
-- the number of months to be planned is defined;
+- the number of months to plan is defined;
 - the required number of tablets per month is entered;
 - an initial remaining balance already available to the patient can also be entered.
 
 Based on this information, the system performs the calculation month by month.
 
-### Basic Flow
+### Basic flow
 
 ```text
 Patient data
@@ -52,7 +52,7 @@ Remaining balance for the next month
 
 ---
 
-## 🧮 Example
+## Example
 
 Suppose the patient needs:
 
@@ -68,19 +68,19 @@ and already has:
 
 The program first considers these 20 tablets and calculates only the additional amount required.
 
-Since each box contains 50 tablets, the application automatically determines how many sealed boxes must be dispensed and how many tablets will remain available for the next period.
+Since each box contains 50 tablets, the application determines how many sealed boxes must be dispensed and how many tablets will remain available for the next period.
 
 ---
 
-## 🖥️ Interface
+## Interface
 
-The application includes a graphical user interface developed with **CustomTkinter**, allowing calculations to be performed without using the terminal.
+The application includes a graphical user interface developed with **CustomTkinter**, so calculations can be performed without using the terminal.
 
-The interface was designed to be simple, fast, and practical for use during the daily dispensing routine.
+The interface was designed to be simple, fast, and practical for the daily dispensing routine.
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies used
 
 | Technology | Purpose |
 |---|---|
@@ -91,27 +91,20 @@ The interface was designed to be simple, fast, and practical for use during the 
 
 ---
 
-## 📂 Project Structure
+## Project structure
 
 ```text
 calculadora-valproato/
 │
-├── app.py
-├── calculadora.py
-├── requirements.txt
-└── README.md
+├── app.py              # Graphical user interface
+├── calculadora.py      # Dispensing calculation logic
+├── requirements.txt    # Dependencies
+└── README.md           # Project documentation
 ```
-
-### Files
-
-- `app.py` — graphical user interface.
-- `calculadora.py` — logic responsible for medication dispensing calculations.
-- `requirements.txt` — dependencies required to run the project.
-- `README.md` — project documentation.
 
 ---
 
-## ▶️ How to Run
+## How to run
 
 ### Requirements
 
@@ -124,7 +117,7 @@ Python 3.10 or higher
 ### 1. Clone the repository
 
 ```bash
-git clone YOUR-REPOSITORY-URL
+git clone https://github.com/evfernandes-dev/calculadora-valproato.git
 ```
 
 ### 2. Open the project folder
@@ -147,7 +140,7 @@ python app.py
 
 ---
 
-## 📦 Dependencies
+## Dependencies
 
 The project mainly uses:
 
@@ -155,15 +148,11 @@ The project mainly uses:
 customtkinter
 ```
 
-All required dependencies can be installed automatically using:
-
-```text
-requirements.txt
-```
+All required dependencies can be installed automatically using `requirements.txt`.
 
 ---
 
-## 💡 Main Goals
+## Main goals
 
 - Reduce manual calculations.
 - Make medication dispensing planning easier.
@@ -174,7 +163,7 @@ requirements.txt
 
 ---
 
-## 🚀 Future Improvements
+## Future improvements
 
 - [x] Calculation based on the number of tablets.
 - [x] Initial balance consideration.
@@ -190,7 +179,7 @@ requirements.txt
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 This application is an **administrative and operational support tool for quantity calculations**.
 
@@ -200,17 +189,17 @@ Medication dispensing must follow the prescription provided, applicable protocol
 
 ---
 
-## 👨‍💻 Author
+## Author
 
-**Emanuel Vítor Fernandes Nascimento**
+**Emanuel Vitor Fernandes Nascimento**
 
 Back-End Developer | Automation
 
-[LinkedIn](https://www.linkedin.com/in/emanuel-vitor-fernandes-6a3796421) • [GitHub](https://github.com/emanuelvitorfn7-gif)
+[LinkedIn](https://www.linkedin.com/in/emanuel-vitor-fernandes-6a3796421) · [GitHub](https://github.com/evfernandes-dev)
 
 ---
 
-## ⭐ About the Project
+## About the project
 
 This project was created from a real-world need, using programming to automate a repetitive calculation and support an actual work routine.
 
