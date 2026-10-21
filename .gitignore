@@ -1,0 +1,19 @@
+# Ambiente virtual
+.venv/
+venv/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+
+# PyCharm / IDE
+.idea/
+.vscode/
+
+# Sistema
+Thumbs.db
+Desktop.ini
