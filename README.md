@@ -1,6 +1,6 @@
 # Valproate Calculator (Depakene)
 
-Desktop application developed in **Python** to help plan the dispensing of **Valproate 250 mg and 500 mg**, taking into account the amount of medication the patient already has and the fact that medication is distributed in sealed boxes.
+Desktop application developed in **Python** to help plan the dispensing of **Valproate**, taking into account the amount of medication the patient already has and the fact that medication is distributed in sealed boxes.
 
 The goal is to make the dispensing process more organized, reduce waste, and make better use of the available medication.
 
@@ -29,9 +29,8 @@ The application assumes that:
 
 - each box contains **50 tablets**;
 - boxes cannot be split;
-- the user selects the medication strength: **250 mg or 500 mg**;
 - the number of months to plan is defined;
-- the required number of tablets per month is entered;
+- the number of tablets per day is entered, which automatically fills in the required tablets per month (**tablets per day x 30**);
 - an initial remaining balance already available to the patient can also be entered.
 
 Based on this information, the system performs the calculation month by month.
@@ -41,7 +40,7 @@ Based on this information, the system performs the calculation month by month.
 ```text
 Patient data
       ↓
-Required amount per month
+Tablets per day (auto-fills tablets per month)
       ↓
 Available balance
       ↓
@@ -54,7 +53,13 @@ Remaining balance for the next month
 
 ## Example
 
-Suppose the patient needs:
+Suppose the patient takes:
+
+```text
+2 tablets per day
+```
+
+which the application automatically converts into:
 
 ```text
 60 tablets per month
