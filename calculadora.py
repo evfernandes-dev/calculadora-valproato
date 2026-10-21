@@ -6,10 +6,8 @@ import math
 COMPRIMIDOS_POR_CAIXA = 50
 
 
-def calcular_mensal(mg, meses, cp_por_mes, sobra_inicial=0):
+def calcular_mensal(meses, cp_por_mes, sobra_inicial=0):
     # validacao simples
-    if mg not in (250, 500):
-        raise ValueError("Miligramagem tem que ser 250 ou 500.")
     if meses <= 0:
         raise ValueError("Meses tem que ser maior que zero.")
     if cp_por_mes <= 0:
@@ -44,7 +42,6 @@ def calcular_mensal(mg, meses, cp_por_mes, sobra_inicial=0):
         total_caixas = total_caixas + caixas
 
     return {
-        "mg": mg,
         "meses": meses,
         "linhas": linhas,
         "total_caixas": total_caixas,

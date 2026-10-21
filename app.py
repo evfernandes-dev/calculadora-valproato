@@ -30,6 +30,9 @@ FONTE_CABECALHO = ("Segoe UI", 14, "bold")
 # Nao altera o calculo, so converte o valor de caixas ja calculado.
 CP_POR_CAIXA_EXIBICAO = 50
 
+# Conversao usada pelo preenchimento automatico: comprimidos por dia -> por mes.
+DIAS_POR_MES = 30
+
 janela = ctk.CTk()
 janela.title("Calculadora Valproato (Depakene)")
 janela.geometry("920x740")
@@ -55,24 +58,10 @@ campo_frame.pack(padx=24, pady=5, fill="x")
 # colunas iguais para alinhamento consistente
 campo_frame.grid_columnconfigure((0, 1, 2, 3), weight=1, uniform="col")
 
-ctk.CTkLabel(campo_frame, text="Miligramagem (250 ou 500)", font=FONTE_LABEL, text_color="#E8E8E8").grid(row=0, column=0, padx=14, pady=(18, 6), sticky="w")
-ctk.CTkLabel(campo_frame, text="Meses", font=FONTE_LABEL, text_color="#E8E8E8").grid(row=0, column=1, padx=14, pady=(18, 6), sticky="w")
+ctk.CTkLabel(campo_frame, text="Meses", font=FONTE_LABEL, text_color="#E8E8E8").grid(row=0, column=0, padx=14, pady=(18, 6), sticky="w")
+ctk.CTkLabel(campo_frame, text="Comprimidos por dia", font=FONTE_LABEL, text_color="#E8E8E8").grid(row=0, column=1, padx=14, pady=(18, 6), sticky="w")
 ctk.CTkLabel(campo_frame, text="Comprimidos por mes", font=FONTE_LABEL, text_color="#E8E8E8").grid(row=0, column=2, padx=14, pady=(18, 6), sticky="w")
 ctk.CTkLabel(campo_frame, text="Sobra inicial", font=FONTE_LABEL, text_color="#E8E8E8").grid(row=0, column=3, padx=14, pady=(18, 6), sticky="w")
-
-entry_mg = ctk.CTkEntry(
-    campo_frame,
-    height=44,
-    corner_radius=8,
-    font=FONTE_ENTRADA,
-    fg_color=ENTRADA_FG,
-    border_color=ENTRADA_BORDA,
-    border_width=1,
-    text_color="#FFFFFF",
-    justify="center",
-)
-entry_mg.insert(0, "500")
-entry_mg.grid(row=1, column=0, padx=14, pady=4, sticky="ew")
 
 entry_meses = ctk.CTkEntry(
     campo_frame,
@@ -87,7 +76,22 @@ entry_meses = ctk.CTkEntry(
     placeholder_text_color="#7A7A7A",
     justify="center",
 )
-entry_meses.grid(row=1, column=1, padx=14, pady=4, sticky="ew")
+entry_meses.grid(row=1, column=0, padx=14, pady=4, sticky="ew")
+
+entry_dia = ctk.CTkEntry(
+    campo_frame,
+    placeholder_text="ex: 2",
+    height=44,
+    corner_radius=8,
+    font=FONTE_ENTRADA,
+    fg_color=ENTRADA_FG,
+    border_color=ENTRADA_BORDA,
+    border_width=1,
+    text_color="#FFFFFF",
+    placeholder_text_color="#7A7A7A",
+    justify="center",
+)
+entry_dia.grid(row=1, column=1, padx=14, pady=4, sticky="ew")
 
 entry_cp = ctk.CTkEntry(
     campo_frame,
@@ -117,6 +121,23 @@ entry_sobra = ctk.CTkEntry(
 )
 entry_sobra.insert(0, "0")
 entry_sobra.grid(row=1, column=3, padx=14, pady=4, sticky="ew")
+
+
+def preencher_por_mes(_evento=None):
+    # "Comprimidos por mes" e preenchido automaticamente a partir de "Comprimidos por dia".
+    texto = entry_dia.get().strip()
+    try:
+        por_dia = int(texto)
+    except ValueError:
+        return
+    if por_dia <= 0:
+        return
+    entry_cp.delete(0, "end")
+    entry_cp.insert(0, str(por_dia * DIAS_POR_MES))
+
+
+entry_dia.bind("<KeyRelease>", preencher_por_mes)
+entry_dia.bind("<FocusOut>", preencher_por_mes)
 
 lbl_erro = ctk.CTkLabel(campo_frame, text="", font=FONTE_ERRO, text_color="#E57373")
 lbl_erro.grid(row=2, column=0, columnspan=4, padx=12, pady=(4, 0))
@@ -211,9 +232,9 @@ tabela.tag_configure("impar", background="#2A2A2A", foreground="#FFFFFF", font=F
 
 def calcular():
     lbl_erro.configure(text="")
+    preencher_por_mes()
 
     try:
-        mg = int(entry_mg.get())
         meses = int(entry_meses.get())
         cp = int(entry_cp.get())
         sobra = int(entry_sobra.get())
@@ -222,7 +243,7 @@ def calcular():
         return
 
     try:
-        r = calcular_mensal(mg, meses, cp, sobra)
+        r = calcular_mensal(meses, cp, sobra)
     except ValueError as e:
         lbl_erro.configure(text=str(e))
         return
