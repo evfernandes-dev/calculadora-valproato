@@ -4,6 +4,10 @@ Desktop application developed in **Python** to help plan the dispensing of **Val
 
 The goal is to make the dispensing process more organized, reduce waste, make better use of available medication, and maintain a complete audit trail of patient dispensations.
 
+> **Project status:** study/portfolio project. It is a dispensing planning tool, not a diagnostic or prescribing tool.
+>
+> **Data privacy:** this repository does not contain patient data. Use fictitious data for demonstrations and never commit databases, dumps or exported patient records.
+
 ---
 
 ## What's New (MySQL Integration & Patient ID)
@@ -67,6 +71,16 @@ calculadora-valproato/
 
 ---
 
+## Data privacy
+
+The application is designed to store patient name, document and SUS number in a local MySQL database. For a public repository or a demo:
+
+- use fictitious patients only;
+- do not commit the MySQL data directory, `.sql` dumps, CSV exports or screenshots with real patient data;
+- keep database credentials outside Git.
+
+---
+
 ## How to run
 
 ### Requirements
@@ -100,10 +114,20 @@ python app.py
 
 ---
 
+## Limitations and next steps
+
+- Database credentials are currently defined in `database.py` for local development. Move them to environment variables before using the application with real data.
+- Add schema migrations instead of creating tables at startup.
+- Add tests for the dispensing calculation rules.
+- Add a screenshot or short GIF to the README.
+- Add an export/backup routine for the MySQL data.
+
+---
+
 ## Author
 
 **Emanuel Vitor Fernandes Nascimento**
 
-Back-End Developer | Automation
+Systems Analysis and Development Student | Python projects
 
 [LinkedIn](https://www.linkedin.com/in/emanuel-vitor-fernandes-6a3796421) · [GitHub](https://github.com/evfernandes-dev)
