@@ -2,7 +2,7 @@
 
 Desktop application developed in **Python** to help plan the dispensing of **Valproate**, taking into account the amount of medication the patient already has, the fact that medication is distributed in sealed boxes, and integrating with **MySQL** for patient record management and dispensing history.
 
-The goal is to make the dispensing process more organized, reduce waste, make better use of available medication, and maintain a complete audit trail of patient dispensations.
+The goal is to make the dispensing process more organized, reduce waste, make better use of available medication, and keep a history of patient dispensations.
 
 > **Project status:** study/portfolio project. It is a dispensing planning tool, not a diagnostic or prescribing tool.
 >
