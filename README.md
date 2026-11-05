@@ -1,133 +1,64 @@
-# Valproate Calculator (Depakene) with MySQL Integration
+# Valproate Calculator (Depakene) with MySQL
 
-Desktop application developed in **Python** to help plan the dispensing of **Valproate**, taking into account the amount of medication the patient already has, the fact that medication is distributed in sealed boxes, and integrating with **MySQL** for patient record management and dispensing history.
+Python desktop app that helps plan valproate dispensing in a public pharmacy. It considers the patient's remaining tablets, sealed boxes and monthly demand, and stores patient and dispensing history in MySQL.
 
-The goal is to make the dispensing process more organized, reduce waste, make better use of available medication, and keep a history of patient dispensations.
-
-> **Project status:** study/portfolio project. It is a dispensing planning tool, not a diagnostic or prescribing tool.
+> Study/portfolio project. It is a dispensing planning tool, not a diagnostic or prescribing tool.
 >
-> **Data privacy:** this repository does not contain patient data. Use fictitious data for demonstrations and never commit databases, dumps or exported patient records.
-
----
-
-## What's New (MySQL Integration & Patient ID)
-
-- **Patient Identification**: Top-level field to search or register patients by Name, CPF, or SUS.
-- **Automatic Balance Retrieval**: When a returning patient is looked up, the system automatically fetches their last remaining balance (`sobra final`) and sets it as the initial balance for the new calculation.
-- **Dispensing History**: Save calculation and dispensing records directly to MySQL.
-- **MySQL Database Support**: Automatically creates and manages the `calculadora_valproato` database and tables (`pacientes`, `dispensacoes`).
-
----
-
-## Why this project was created
-
-The calculator was developed to support the dispensing routine in a public pharmacy.
-
-In some cases, patients still have tablets left from a previous dispensing period. Before giving out new boxes, this remaining amount can be considered when planning the following months.
-
-The application automates this calculation and helps visualize:
-- patient identification and history;
-- how many tablets the patient already has;
-- how many tablets are required each month;
-- how many boxes need to be dispensed;
-- how many tablets will remain for the following month.
-
----
+> Never commit real patient data, database dumps or screenshots with personal information. Use fictitious data for demos.
 
 ## How it works
 
-The application assumes that:
-- each box contains **50 tablets**;
-- boxes cannot be split;
-- the number of months to plan is defined;
-- the number of tablets per day is entered, which automatically fills in the required tablets per month (**tablets per day x 30**);
-- patient records and initial balances can be loaded from MySQL.
+- Each box contains **50 tablets** and cannot be split.
+- Tablets per month = tablets per day x 30.
+- The app shows how many boxes to dispense and how many tablets remain for the following month.
+- Returning patients can be searched by name, CPF or SUS number; the last balance is loaded automatically.
 
----
+## Features
 
-## Technologies used
+- Patient lookup and registration (name, CPF, SUS)
+- Automatic balance retrieval for returning patients
+- Dispensing history saved to MySQL
+- Automatic creation of the `calculadora_valproato` database and tables (`pacientes`, `dispensacoes`)
+
+## Stack
 
 | Technology | Purpose |
-|---|---|
-| Python | Main application logic |
-| CustomTkinter | Graphical user interface |
-| MySQL | Patient records and dispensing history database |
-| mysql-connector-python | MySQL driver for Python |
-| Git & GitHub | Version control and project hosting |
+| --- | --- |
+| Python | Application logic |
+| CustomTkinter | Desktop interface |
+| MySQL | Patient and dispensing history |
+| mysql-connector-python | MySQL driver |
 
----
+## Running locally
 
-## Project structure
-
-```text
-calculadora-valproato/
-│
-├── app.py              # Graphical user interface & integration
-├── calculadora.py      # Dispensing calculation logic
-├── database.py         # MySQL connection & queries
-├── requirements.txt    # Dependencies
-└── README.md           # Project documentation
-```
-
----
-
-## Data privacy
-
-The application is designed to store patient name, document and SUS number in a local MySQL database. For a public repository or a demo:
-
-- use fictitious patients only;
-- do not commit the MySQL data directory, `.sql` dumps, CSV exports or screenshots with real patient data;
-- keep database credentials outside Git.
-
----
-
-## How to run
-
-### Requirements
-
-- Python 3.10 or higher
-- MySQL Server (running locally, e.g., via WAMP, XAMPP, or standalone MySQL)
-
-### 1. Clone the repository
+Requirements: Python 3.10+ and MySQL Server.
 
 ```bash
 git clone https://github.com/evfernandes-dev/calculadora-valproato.git
-```
-
-### 2. Open the project folder
-
-```bash
 cd calculadora-valproato
-```
-
-### 3. Install dependencies
-
-```bash
 pip install -r requirements.txt
-```
-
-### 4. Run the application
-
-```bash
 python app.py
 ```
 
----
+## Structure
+
+```text
+app.py              GUI and integration
+calculadora.py      Dispensing calculation logic
+database.py         MySQL connection and queries
+requirements.txt    Dependencies
+```
 
 ## Limitations and next steps
 
-- Database credentials are currently defined in `database.py` for local development. Move them to environment variables before using the application with real data.
+- Database credentials are defined in `database.py`; move them to environment variables before using real data.
 - Add schema migrations instead of creating tables at startup.
-- Add tests for the dispensing calculation rules.
-- Add a screenshot or short GIF to the README.
-- Add an export/backup routine for the MySQL data.
-
----
+- Add tests for the dispensing rules.
+- Add a screenshot or short GIF.
+- Add an export/backup routine.
 
 ## Author
 
 **Emanuel Vitor Fernandes Nascimento**
-
-Systems Analysis and Development Student | Python projects
 
 [LinkedIn](https://www.linkedin.com/in/emanuel-vitor-fernandes-6a3796421) · [GitHub](https://github.com/evfernandes-dev)
